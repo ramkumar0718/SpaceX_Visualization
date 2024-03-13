@@ -1,0 +1,50 @@
+{% macro display_cards(data) %}
+
+    <div class="cards">
+        {% if data.links.patch.large %}
+            <img src="{{ data.links.patch.large }}" alt="{{ data.name }}" class="card-img" loading="lazy">
+            {% else %}
+                <img src="static/imgs/noimage.jpg" alt="{{ data.name }}" class="card-img" loading="lazy">
+        {% endif %}
+        <div>
+            <div class="card-name">{{ data.name }}</div>
+            <div class="card-details-date">
+                {% if data.details %}
+                    <p><img src="static/imgs/details.png" alt="Details" class="small-img" loading="lazy"> {{ data.details }}</p>
+                {% endif %}
+                <p>{{ data.date_utc }}</p>
+            </div>
+            <div class="card-reused-landed">
+                {% if data.cores[0].landing_attempt and data.cores[0].landing_success %}
+                    <p class="landed-p">Landed Successfully <img src="static/imgs/tick.png" alt="Tick" class="small-img"></p>
+                {% endif %}
+                {% if data.cores[0].reused %}
+                    <p>Reused <img src="static/imgs/tick.png" alt="Tick" class="small-img"></p>
+                {% endif %}
+            </div>
+            <div class="card-landed-type">
+                {% if data.cores[0].landing_type %}
+                    <p>Landed Type: {{ data.cores[0].landing_type }}</p>
+                {% endif %}
+            </div>
+            <div class="card-links">
+                <a href="{{ data.links.article }}" target="_blank">Article</a>
+                <a href="{{ data.links.wikipedia }}" target="_blank">Wikipedia</a>
+                <a href="{{ data.links.webcast }}" target="_blank">Youtube</a>
+                <a href="{{ data.links.reddit.launch }}" target="_blank">Reddit</a>
+            </div>
+            <div class="card-pictures">
+                {% if data.links.flickr.original != [] %}
+                    <br><a style="display: inline-flex; font-size: 17px;" data-bs-toggle="collapse" href="#collapseWidthExample" role="button" aria-expanded="true" aria-controls="collapseWidthExample">
+                        <img src="static/imgs/picture.png" alt="Pictures" class="small-img" style="margin-right: 10px;">See Pictures
+                    </a>
+                    <div class="collapse collapse-vertical" id="collapseWidthExample">    
+                        {% for img in data.links.flickr.original %}
+                            <a href="{{ img }}" target="_blank"><img src="{{ img }}" alt="Original Pictures" class="org-img" loading="lazy"></a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endmacro %}

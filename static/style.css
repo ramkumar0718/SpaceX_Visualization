@@ -1,0 +1,60 @@
+h1{
+    margin: 35px;
+}
+
+.top-content{
+    justify-content: center;
+    text-align: center;
+}
+
+.cards {
+    border: 1px solid #eaeaea;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+  
+.cards:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+  
+.card-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+}
+  
+.card-name {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.small-img{
+    height: 23px;
+    width: 23px;
+}
+
+.card-links a {
+    margin-right: 10px;
+}
+
+.card-reused-landed{
+    display: inline-flex;
+}
+
+.landed-p{
+    margin-right: 25px;
+}
+
+.org-img{
+    height: 120px;
+    width: 120px;
+	margin-top: 5px;
+}
